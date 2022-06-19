@@ -1,0 +1,38 @@
+<div class='col-10 h-80 w-100 p-3'>
+    <div class="text-center w-100 header">Users</div>
+    
+    <table class="table">
+        <thead>
+
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Branch</td>
+                <td>Address</td>
+
+                <td>SUB1</td>
+                <td>SUB2</td>
+                <td>SUB3</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for stud in student %}
+            <tr>
+                <td>{{stud.name}}</td>
+                <td>{{stud.email}}</td>
+                <td>{{stud.phone_number}}</td>
+                <td>{{stud.branch}}</td>
+                <td>{{stud.Address}}</td>
+
+                <td>{{stud.SUB1}}</td>
+                <td>{{stud.SUB2}}</td>
+                <td>{{stud.SUB3}}</td>
+                
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
