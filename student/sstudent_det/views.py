@@ -20,7 +20,6 @@ def studentreg(request):
             address=form.cleaned_data['Address']
             photo=form.cleaned_data['photo']
                 
-        
             student=Student.objects.create(branch=branch,name=name,phone_number=phone_number,email=email,Address=address,photo=photo)
             student.save()
             return HttpResponse("Success")
@@ -66,11 +65,10 @@ def delete(request,pk):
 def search(request):
     if request.method=='POST':
         query=request.POST['search']
-        student=Student.objects.filter(Q(phone_number=query)|Q(email=query)|Q(id__contains=query))
-        ido=student.values_list('id')
+        student=Student.objects.get(Q(phone_number=query)|Q(email=query)|Q(id__contains=query))
         print(student)
+        ido=student.id
         print(ido)
-        context={'student':student}
         return redirect('student_detail',pk=ido)
     return render(request,'search.html')
 
